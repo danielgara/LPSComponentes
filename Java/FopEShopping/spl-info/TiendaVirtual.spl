@@ -1,0 +1,29 @@
+SPL TiendaVirtual {
+
+	Features = {AdminCategorias, AgregarCategoria, ModificarCategoria, EliminarCategoria, 
+		Categoria, CategoriaDAO, Conexion, Config, ConfigCustom}
+
+	Deltas = {dAdminCategorias, dAgregarCategoria, dModificarCategoria, dEliminarCategoria,
+		dCategoria, dCategoriaDAO, dConexion, dConfig, dConfigCustom}
+
+	Constraints {
+		CategoriaDAO & AgregarCategoria; 
+	}
+
+	Partitions {
+		{dAdminCategorias} when (AdminCategorias);
+		{dAdminCategorias, dCategoriaDAO, dAgregarCategoria} when (AgregarCategoria);	 
+		{dAdminCategorias, dCategoriaDAO, dModificarCategoria} when (ModificarCategoria);	 
+		{dAdminCategorias, dCategoriaDAO, dEliminarCategoria} when (EliminarCategoria);
+		{dCategoria} when (Categoria);
+		{dCategoriaDAO} when (CategoriaDAO);
+		{dConexion} when (Conexion);
+		{dConfig} when (Config);
+		{dConfigCustom} when (ConfigCustom);
+	}
+	
+	Products { 
+		M_COMPLETE = {AdminCategorias, AgregarCategoria, ModificarCategoria, EliminarCategoria,
+			Categoria, CategoriaDAO, Conexion, ConfigCustom};  
+	}
+}

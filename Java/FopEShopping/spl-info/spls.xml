@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../bin/spls.xsd">
+	<spl name="TiendaVirtual">
+		<features>
+			<feature name ="AdminCategorias" />
+			<feature name ="AgregarCategoria" />
+			<feature name ="ModificarCategoria" />
+			<feature name ="EliminarCategoria" />
+			<feature name ="Categoria" />
+			<feature name ="CategoriaDAO" />
+			<feature name ="Conexion" />
+			<feature name ="Config" />
+			<feature name ="ConfigCustom" />
+		</features>
+		<configurations>
+			<configuration formula="CategoriaDAO AND AgregarCategoria
+			" />
+		</configurations>
+		<deltas>
+			<partition>
+				<modul delta="dAdminCategorias" when="AdminCategorias
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAdminCategorias" when="AgregarCategoria
+				" />
+				<modul delta="dCategoriaDAO" when="AgregarCategoria
+				" />
+				<modul delta="dAgregarCategoria" when="AgregarCategoria
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAdminCategorias" when="ModificarCategoria
+				" />
+				<modul delta="dCategoriaDAO" when="ModificarCategoria
+				" />
+				<modul delta="dModificarCategoria" when="ModificarCategoria
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAdminCategorias" when="EliminarCategoria
+				" />
+				<modul delta="dCategoriaDAO" when="EliminarCategoria
+				" />
+				<modul delta="dEliminarCategoria" when="EliminarCategoria
+				" />
+			</partition>
+			<partition>
+				<modul delta="dCategoria" when="Categoria
+				" />
+			</partition>
+			<partition>
+				<modul delta="dCategoriaDAO" when="CategoriaDAO
+				" />
+			</partition>
+			<partition>
+				<modul delta="dConexion" when="Conexion
+				" />
+			</partition>
+			<partition>
+				<modul delta="dConfig" when="Config
+				" />
+			</partition>
+			<partition>
+				<modul delta="dConfigCustom" when="ConfigCustom
+				" />
+			</partition>
+		</deltas>
+	</spl>
+</spls>

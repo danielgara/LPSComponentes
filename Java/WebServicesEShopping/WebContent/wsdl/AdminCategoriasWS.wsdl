@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://admincategorias.services.eshopping.pl.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://admincategorias.services.eshopping.pl.org" xmlns:intf="http://admincategorias.services.eshopping.pl.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://admincategorias.services.eshopping.pl.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="agregar">
+    <complexType>
+     <sequence>
+      <element name="n" type="xsd:string"/>
+      <element name="d" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="agregarResponse">
+    <complexType/>
+   </element>
+   <element name="eliminar">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="eliminarResponse">
+    <complexType/>
+   </element>
+   <element name="modificar">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="n" type="xsd:string"/>
+      <element name="d" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modificarResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="modificarResponse">
+
+      <wsdl:part element="impl:modificarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="agregarRequest">
+
+      <wsdl:part element="impl:agregar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="eliminarResponse">
+
+      <wsdl:part element="impl:eliminarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="modificarRequest">
+
+      <wsdl:part element="impl:modificar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="agregarResponse">
+
+      <wsdl:part element="impl:agregarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="eliminarRequest">
+
+      <wsdl:part element="impl:eliminar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="AdminCategoriasWS">
+
+      <wsdl:operation name="agregar">
+
+         <wsdl:input message="impl:agregarRequest" name="agregarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:agregarResponse" name="agregarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="eliminar">
+
+         <wsdl:input message="impl:eliminarRequest" name="eliminarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:eliminarResponse" name="eliminarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modificar">
+
+         <wsdl:input message="impl:modificarRequest" name="modificarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:modificarResponse" name="modificarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AdminCategoriasWSSoapBinding" type="impl:AdminCategoriasWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="agregar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="agregarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="agregarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="eliminar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="eliminarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="eliminarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modificar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modificarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modificarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AdminCategoriasWSService">
+
+      <wsdl:port binding="impl:AdminCategoriasWSSoapBinding" name="AdminCategoriasWS">
+
+         <wsdlsoap:address location="http://localhost:8085/WebServicesEShopping/services/AdminCategoriasWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

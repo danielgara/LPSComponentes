@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from AdminCategoriasWSService WSDL service -->
+
+  <service name="AdminCategoriasWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://admincategorias.services.eshopping.pl.org"/>
+      <parameter name="wsdlServiceElement" value="AdminCategoriasWSService"/>
+      <parameter name="schemaQualified" value="http://admincategorias.services.eshopping.pl.org"/>
+      <parameter name="wsdlServicePort" value="AdminCategoriasWS"/>
+      <parameter name="className" value="org.pl.eshopping.services.admincategorias.AdminCategoriasWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="AdminCategoriasWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="agregar" qname="operNS:agregar" xmlns:operNS="http://admincategorias.services.eshopping.pl.org" soapAction="" >
+        <parameter qname="pns:n" xmlns:pns="http://admincategorias.services.eshopping.pl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:d" xmlns:pns="http://admincategorias.services.eshopping.pl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="eliminar" qname="operNS:eliminar" xmlns:operNS="http://admincategorias.services.eshopping.pl.org" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://admincategorias.services.eshopping.pl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="modificar" qname="operNS:modificar" xmlns:operNS="http://admincategorias.services.eshopping.pl.org" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://admincategorias.services.eshopping.pl.org" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:n" xmlns:pns="http://admincategorias.services.eshopping.pl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:d" xmlns:pns="http://admincategorias.services.eshopping.pl.org" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="eliminar agregar modificar"/>
+
+  </service>
+</deployment>
